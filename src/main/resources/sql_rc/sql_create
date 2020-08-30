@@ -1,0 +1,56 @@
+COMMENT
+
+CREATE TABLE person
+(
+Id                   VARCHAR(40) COMMENT '自增ID',
+name_ VARCHAR(255) COMMENT '姓名',
+mobile VARCHAR(255) COMMENT '手机',
+createTime DATETIME COMMENT '创建时间'
+)  ENGINE=INNODB  DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE person_int_primary
+(
+Id                   INT  COMMENT '自增ID',
+name_ VARCHAR(255) COMMENT '姓名',
+mobile VARCHAR(255) COMMENT '手机',
+createTime DATETIME COMMENT '创建时间'
+)  ENGINE=INNODB  DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE apilog
+(
+   Id                   VARCHAR(40),
+   systemName           VARCHAR(100) COMMENT '系统名称',
+   systemCode           VARCHAR(50) COMMENT '系统编码',
+   indentify            VARCHAR(100) COMMENT '标识(各种唯一Id如：userId ,orderId 等)',
+   moduleId             VARCHAR(100) COMMENT '模块Id',
+   serviceName          VARCHAR(100) COMMENT '接口名称',
+   clientIP             VARCHAR(15) COMMENT '客户端IP',
+   clientType           INT COMMENT '客户端类型 10 Android,20 IOS, 30 IE ,31 FireFox,32 Opera ,33 Safari ,34 Chrome ,40 Service(系统服务)',
+   requestType          INT COMMENT '请求类型：0 GET,1 POST,2 PUT,3 DELETE',
+   responseStatus       INT COMMENT '响应状态 0 成功 1  失败',
+   responseTime         INT COMMENT '响应时长(毫秒)',
+   inputParam           VARCHAR(2000) COMMENT '接口入参',
+   outputParam          VARCHAR(2000) COMMENT '接口出参',
+   appId                VARCHAR(100) COMMENT '应用Id',
+   browerVersion        VARCHAR(100) COMMENT 'browerVersion',
+   logTime              DATETIME COMMENT '日志时间',
+   CreateTime           DATETIME
+) ENGINE=INNODB  DEFAULT CHARSET=utf8 ;#指定引擎和存储字符类型
+
+ALTER TABLE apilog COMMENT '接口日志';
+
+
+CREATE TABLE `demo_table` (
+
+             `id_` varchar(64) NOT NULL COMMENT '编号',
+
+             `remark_` text COMMENT '备注',
+             `create_time` datetime NOT NULL COMMENT '创建时间',
+             `create_by` varchar(64) DEFAULT NULL COMMENT '创建者',
+             `update_time` datetime NOT NULL COMMENT '更新时间',
+             `update_by` varchar(64) DEFAULT NULL COMMENT '更新者',
+             `del_flag` tinyint(1) NOT NULL COMMENT '删除标志',
+
+             PRIMARY KEY (`id_`)
+
+           ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='demo表';
